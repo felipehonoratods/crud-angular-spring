@@ -1,32 +1,35 @@
-package com.avantia.backend.model;
+package com.avantia.crud.entity;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
-@Table(name = "users")
-public class User {
-
+public class Users {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Integer id;
+    private int id;
+    private String name;
+    private String lastname;
+    private String email;
+    private String password;
 
-    @Column
-    public String name;
+    public Users() {
+    }
 
-    @Column
-    public String lastname;
+    public Users(String name, String lastname, String email, String password) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+    }
 
-    @Column
-    public String email;
-
-    @Column
-    public String password;
-
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
